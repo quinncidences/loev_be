@@ -6,7 +6,7 @@ class CreateUsers < ActiveRecord::Migration[5.2]
       t.string :email
       t.string :tagline
       t.string :bio
-      t.date :DOB
+      t.date :dob
       t.string :gender
       t.string :current_location
 
