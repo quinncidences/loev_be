@@ -6,17 +6,21 @@ class PreferencesController < ApplicationController
     end
 
     def create
-      @preference = Preference.create(preference_params)
+      @preference = Preference.new(preference_params)
+      @preference.save!
+      render json: @preference
     end
 
     def update
       @preference = Preference.find(params[:id])
       @preference.update(preference_params)
+      render json: @preference
     end
 
     def destroy
       @preference = Preference.find(params[:id])
       @preference.destroy
+      render json: @preference
     end
 
     private
