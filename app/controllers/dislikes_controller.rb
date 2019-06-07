@@ -1,6 +1,6 @@
 class DislikesController < ApplicationController
   def create
-    @dislike = Like.new(dislike_params)
+    @dislike = Dislike.new(dislike_params)
     @dislike.save!
     render json: @dislike
   end

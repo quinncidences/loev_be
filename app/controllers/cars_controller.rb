@@ -1,10 +1,5 @@
 class CarsController < ApplicationController
 
-    def index
-      @cars = Car.all
-      render json: @cars
-    end
-
     def create
       @car = Car.new(car_params)
       @car.save!
