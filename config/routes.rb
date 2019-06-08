@@ -5,6 +5,7 @@ Rails.application.routes.draw do
   resources :likes, only: [:create]
   resources :dislikes, only: [:create]
   resources :matches, only: [:create]
+  post '/login', to: 'auth#create'
 end
 
 #I don't think I need a cars and preferences index.
