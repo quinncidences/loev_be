@@ -1,4 +1,5 @@
 class AuthController < ApplicationController
+  skip_before_action :authorized, only: [:create]
 
   def create
     @user = User.find_by(email: user_login_params[:email])
@@ -11,7 +12,7 @@ class AuthController < ApplicationController
   end
 
   def user_login_params
-    params.require(:user).permit(:username, :password)
+    params.require(:user).permit(:email, :password)
   end
 
 end
