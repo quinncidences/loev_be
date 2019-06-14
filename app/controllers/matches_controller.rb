@@ -7,5 +7,8 @@ class MatchesController < ApplicationController
     @match2.save!
     render json: {match: @match, match2: @match2}
 
+  private
+  def like_params
+    params.require(:match).permit(:user_id, :match_id)
   end
 end
