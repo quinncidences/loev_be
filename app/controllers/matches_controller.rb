@@ -6,9 +6,10 @@ class MatchesController < ApplicationController
     @match2 = Match.new(user_id: params[:match_id], match_id: params[:user_id])
     @match2.save!
     render json: {match: @match, match2: @match2}
+  end
 
   private
   def like_params
-    params.require(:match).permit(:user_id, :match_id)
+    params.require(:like).permit(:user_id, :liked_id)
   end
 end
