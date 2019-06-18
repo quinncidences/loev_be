@@ -5,7 +5,7 @@ Rails.application.routes.draw do
   resources :likes, only: [:create]
   resources :dislikes, only: [:create]
   resources :matches, only: [:create]
-  resources :chats, only: [:create]
+  resources :chats, only: [:create, :index]
   resources :messages, only: [:create]
   post '/login', to: 'auth#create'
 end
