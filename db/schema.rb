@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 2019_06_07_230615) do
+ActiveRecord::Schema.define(version: 2019_06_18_002110) do
 
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
@@ -20,6 +20,14 @@ ActiveRecord::Schema.define(version: 2019_06_07_230615) do
     t.string "make"
     t.string "model"
     t.integer "year"
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
+  end
+
+  create_table "chats", force: :cascade do |t|
+    t.integer "user_id"
+    t.integer "recipient_id"
+    t.string "recipient_name"
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
   end
@@ -41,6 +49,16 @@ ActiveRecord::Schema.define(version: 2019_06_07_230615) do
   create_table "matches", force: :cascade do |t|
     t.integer "user_id"
     t.integer "match_id"
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
+  end
+
+  create_table "messages", force: :cascade do |t|
+    t.integer "user_id"
+    t.integer "recipient_id"
+    t.integer "chat_id"
+    t.integer "recipient_chat_id"
+    t.string "content"
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
   end
