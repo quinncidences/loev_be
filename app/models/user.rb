@@ -9,6 +9,6 @@ class User < ApplicationRecord
   has_many :chats, dependent: :destroy
   has_many :messages, through: :chats
 
-  validates :first_name, :last_name, :email, :password, :tagline, :bio, :gender, :current_location, presence: true
+  validates :first_name, :last_name, :email, :password, :tagline, :bio, :gender, :current_location, :uri, presence: true
   validates :email, uniqueness: true
 end
