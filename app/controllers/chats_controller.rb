@@ -1,4 +1,5 @@
 class ChatsController < ApplicationController
+  skip_before_action :authorized, only: [:index]
 
   def index
     @chats = Chat.all
@@ -11,6 +12,7 @@ class ChatsController < ApplicationController
   end
 
   def create
+
     @chat1 = Chat.new(
       user_id: params[:user_id],
       user_name: params[:user_name],
